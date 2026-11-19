@@ -10,6 +10,7 @@ RUN npm run build
 
 # Production image with nginx
 FROM nginx:alpine
+RUN apk upgrade --no-cache
 
 # Copy built assets
 COPY --from=builder /app/dist /usr/share/nginx/html
