@@ -1,4 +1,5 @@
 FROM node:20-alpine
+RUN apk upgrade --no-cache zlib
 WORKDIR /app
 COPY package.json ./
 RUN npm install --omit=dev
