@@ -1,7 +1,7 @@
 FROM node:20-alpine
 WORKDIR /app
 COPY package.json ./
-RUN npm install --omit=dev
+RUN npm install --omit=dev && apk upgrade --no-cache openssl
 COPY *.js ./
 # Default to dynamic IVR engine, can be overridden with IVR_MODE=legacy
 ENV IVR_MODE=dynamic
